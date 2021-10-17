@@ -1,0 +1,27 @@
+.cardImage {
+    width: 12rem;
+    height: 8rem;
+}
+
+.card {
+    padding: 5px;
+    margin: 10px;
+}
+
+.cardTitle {
+    margin-top: 0%;
+    font-size:75%;
+    text-align: center;
+}
+
+.btnAttractions {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+}
+
+.destinationsCard {
+    background: white;
+    box-shadow: 1px 2px 5px grey;
+}
