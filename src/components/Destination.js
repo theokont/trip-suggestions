@@ -1,38 +1,17 @@
 // import Button from "@restart/ui/esm/Button";
-import {React, useEffect, useState } from "react";
+import { React } from "react";
 import { Card, Button } from 'react-bootstrap';
 import image from "../static/images/destination.jpg"
 import "../static/css/Destination.css";
-import axios from "axios";
 import { useHistory } from "react-router";
 
 export default function Destination(props) {
-
-    const [destinationName, setDestinationName] = useState(props.destination.destination);
-    const [countryCode, setCountryCode] = useState(null);
     let history = useHistory();
-
-    useEffect( () => {
-        getCityAddress();
-    //   eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
-
-      function getCityAddress() {
-        axios.get(props.apiUrl + "/destination-address/" + props.destination.destination, {credentials: "same-origin"})
-          .then((response) => {
-              if (response.data) {
-                console.log(response.data['cityName']);
-                setDestinationName( response.data['cityName']);
-                setCountryCode(response.data['countryCode']);
-              }
-          })
-          .catch((error) => {
-            console.log(error);
-        })
-    }
+    let cityName = props.destination.cityName; 
+    let countryCode = props.destination.countryCode;
 
     function getPointsOfInterest(event) {
-        history.push(`/destinations/pois?destination=${destinationName}&countryCode=${countryCode}`);
+        history.push(`/destinations/pois?destination=${props.destination.cityName}&countryCode=${props.destination.countryCode}`);
     }
 
     return (
@@ -40,7 +19,10 @@ export default function Destination(props) {
             <Card.Img variant="top" src={image} className="cardImage"/>
             <Card.Body>
                 <Card.Title>
-                    <p className="cardTitle">{destinationName}, {countryCode}</p>
+                    {cityName
+                    ? <p className="cardTitle"> {cityName}, {countryCode}</p>
+                    : <p className="cardTitle"> Error 404, not found</p>
+                    }
                 </Card.Title>
                 <Button variant="primary" onClick={ event => getPointsOfInterest(event) }>
                     Attractions

@@ -24,8 +24,6 @@ export default class DestinationsPage extends React.Component {
                             key={destination.destination} 
                             apiUrl={this.props.apiUrl} 
                             destination={destination} 
-                            handleState={this.props.handleState} 
-                            handlePoi = {this.props.handlePoi}
                         />
                     </Col>);
                 }
