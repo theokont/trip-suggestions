@@ -30,7 +30,7 @@
 
 .landingPageContainer {
   width: 80%;
-  height: 95vh;
+  height: 100vh;
   background-color: rgba(54, 105, 129, 0.63);
   margin: 0 auto;
   background-image: url("../images/landing_page.jpg");

@@ -1,14 +1,15 @@
 import React from 'react';
+import { Container } from "react-bootstrap";
 import OriginInput from './OriginInput';
 import Header from './Header';
-import "../static/css/App.css"
+import "../static/css/LandingPage.css"
 
 export default function LandingPage(props) {
 
     return (
-        <div>
-            <div className="landingPageContainer">
-                <Header />
+        <div className="landingPage">
+            <Container fluid="md" className="landingPageContainer bg-dark">
+                {/* <Header /> */}
                 <OriginInput 
                     handleChange={props.handleOriginInputChange} 
                     apiUrl={props.apiUrl} 
@@ -16,7 +17,7 @@ export default function LandingPage(props) {
                     handleResponse = {props.handleResponse}
                     handleError = {props.handleError} 
                 />        
-            </div>
+            </Container>
         </div>
     );
     

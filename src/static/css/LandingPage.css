@@ -1,0 +1,12 @@
+.landingPageContainer {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    background-image: url("../images/landing_page.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .landingPage {
+    background-color: #171E24;
+  }

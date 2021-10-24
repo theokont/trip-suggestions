@@ -53,10 +53,13 @@ export default function PointsOfInterestPage(props) {
     }
 
     return (
-        <Container className="pointsOfInterestContainer">
-            <h2>{destination} attractions</h2>
-            <CardGroup className="pointsOfInterest justify-content-center">{pointsOfInterestRows}</CardGroup>
-        </Container>
+        <div className="pointsOfInterestOuter">
+            <Container className="pointsOfInterestContainer bg-dark">
+                <h2 className="headerMsg">{destination} attractions</h2>
+                <CardGroup className="pointsOfInterest justify-content-center">{pointsOfInterestRows}</CardGroup>
+            </Container>
+        </div>
+        
     );
 
 }

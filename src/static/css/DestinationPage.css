@@ -1,3 +1,7 @@
+.destinationsOuter {
+    background-color: #171E24;
+    /* background-color: white; */
+}
 .destinationsContainer h2 {
     vertical-align: middle;
     text-align: center;
@@ -5,5 +9,9 @@
 
 .destinations {
     left: 50%;
+}
+
+.headerMsg {
+    color: white;
 }
 

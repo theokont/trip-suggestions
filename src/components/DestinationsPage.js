@@ -39,10 +39,13 @@ export default class DestinationsPage extends React.Component {
             }
             
             return (
-                <Container className="destinationsContainer">
-                    <h2>Popular destinations from {this.props.origin}</h2>
-                    <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
-                </Container>
+                <div className="destinationsOuter">
+                    <Container className="bg-dark">
+                        <h2 className="headerMsg">Popular destinations from {this.props.origin}</h2>
+                        <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
+                    </Container>
+                </div>
+                
             )
         }
         else {
