@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from "react-bootstrap";
 import OriginInput from './OriginInput';
-import Header from './Header';
 import "../static/css/LandingPage.css"
 
 export default function LandingPage(props) {
