@@ -13,5 +13,7 @@
 
 .headerMsg {
     color: white;
+    vertical-align: middle;
+    text-align: center;
 }
 
