@@ -54,7 +54,7 @@ export default function PointsOfInterestPage(props) {
 
     return (
         <div className="pointsOfInterestOuter">
-            <Container className="pointsOfInterestContainer bg-dark">
+            <Container fluid className="pointsOfInterestContainer bg-dark">
                 <h2 className="headerMsg">{destination} attractions</h2>
                 <CardGroup className="pointsOfInterest justify-content-center">{pointsOfInterestRows}</CardGroup>
             </Container>
