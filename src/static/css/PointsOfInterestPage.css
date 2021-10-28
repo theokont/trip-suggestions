@@ -3,6 +3,12 @@
     justify-content: center;
 }
 
+.pointsOfInterestContainer {
+    width: 80%;
+    height: 104vh;
+    margin: 0 auto;
+  }
+
 .pointsOfInterestContainer h2 {
     vertical-align: middle;
     text-align: center;
