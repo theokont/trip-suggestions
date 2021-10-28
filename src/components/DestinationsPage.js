@@ -41,8 +41,16 @@ export default class DestinationsPage extends React.Component {
             return (
                 <div className="destinationsOuter">
                     <Container className="bg-dark">
-                        <h2 className="headerMsg">Popular destinations from {this.props.origin}</h2>
-                        <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
+                        <Row>
+                            <Col  style={{marginTop: "20px"}}>
+                                <h2 className="headerMsg">Popular destinations from {this.props.origin}</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col  style={{marginTop: "20px"}}>
+                                <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
+                            </Col>
+                        </Row>
                     </Container>
                 </div>
                 

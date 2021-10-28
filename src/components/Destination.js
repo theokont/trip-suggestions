@@ -13,6 +13,7 @@ export default function Destination(props) {
     let history = useHistory();
     let cityName = props.destination.cityName; 
     let countryCode = props.destination.countryCode;
+    let status = props.destination.status;
 
     function getPointsOfInterest(event) {
         history.push(`/destinations/pois?destination=${props.destination.cityName}&countryCode=${props.destination.countryCode}`);
@@ -24,9 +25,9 @@ export default function Destination(props) {
             <Card.Img variant="top" src={image} className="cardImage"/>
             <Card.Body>
                 <Card.Title>
-                    {cityName
+                    {status === "200"
                     ? <p className="cardTitle"> {cityName}, {countryCode}</p>
-                    : <p className="cardTitle"> Error 404, not found</p>
+                    : <p className="cardTitle"> {cityName} (Failed to load)</p>
                     }
                 </Card.Title>  
                 {cityName
