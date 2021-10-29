@@ -5,18 +5,35 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 export default function OriginInput(props) {
+
     let history = useHistory();
 
-    function getDestinationsResponse(event) {
-        axios.get(props.apiUrl + "/most-booked-destinations/" + props.origin, {credentials: "same-origin"})
-          .then(response => {
-            console.log(response.data);
-            props.handleResponse(response.data);
-          })
-          .then(history.push("/destinations"))
-          .catch((error) => {
-            console.log(error);
-          })
+    async function getDestinationsResponse(event) {
+        await axios.get(`${props.apiUrl}/destination-airport-code/${props.origin}`, {credentials: "same-origin"})
+        .then(response =>  {
+            props.handleOriginCode(response.data);
+            return response;
+        })
+        .then((response) => {
+            delay(100);
+            return response;   
+        })
+        .then((response) => {
+            return axios.get(`${props.apiUrl}/most-booked-destinations/${response.data}`, {credentials: "same-origin"})
+            .then(response => {
+              props.handleResponse(response.data);
+            })
+            .then(history.push("/destinations"))
+            .catch((error) => {
+              console.log(error);
+            })
+        })
+    }
+
+    function delay(t, data) {
+        return new Promise(resolve => {
+            setTimeout(resolve.bind(null, data), t);
+        });
     }
 
     

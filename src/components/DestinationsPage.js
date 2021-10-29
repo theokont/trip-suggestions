@@ -21,8 +21,10 @@ export default class DestinationsPage extends React.Component {
                     return (
                     <Col md={4}>
                         <Destination 
-                            key={destination.destination} 
+                            key={destination.cityCode} 
                             apiUrl={this.props.apiUrl} 
+                            origin = {this.props.origin}
+                            originCode = {this.props.originCode}
                             destination={destination} 
                         />
                     </Col>);

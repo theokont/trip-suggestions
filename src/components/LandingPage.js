@@ -8,8 +8,8 @@ export default function LandingPage(props) {
     return (
         <div className="landingPage">
             <Container fluid="md" className="landingPageContainer bg-dark">
-                {/* <Header /> */}
                 <OriginInput 
+                    handleOriginCode = {props.handleOriginCode}
                     handleChange={props.handleOriginInputChange} 
                     apiUrl={props.apiUrl} 
                     origin={props.origin}

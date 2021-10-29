@@ -1,6 +1,6 @@
 // import Button from "@restart/ui/esm/Button";
 import { React, useState } from "react";
-import { Card, Button, Modal } from 'react-bootstrap';
+import { Card, Button, } from 'react-bootstrap';
 import { useHistory } from "react-router";
 import image from "../static/images/destination.jpg"
 import "../static/css/Destination.css";
@@ -11,12 +11,13 @@ export default function Destination(props) {
     const [modalShow, setModalShow] = useState(false);
 
     let history = useHistory();
+    let cityCode = props.destination.cityCode;
     let cityName = props.destination.cityName; 
     let countryCode = props.destination.countryCode;
     let status = props.destination.status;
 
     function getPointsOfInterest(event) {
-        history.push(`/destinations/pois?destination=${props.destination.cityName}&countryCode=${props.destination.countryCode}`);
+        history.push(`/destinations/pois?destination=${cityName}&countryCode=${countryCode}`);
     }
 
     
@@ -27,10 +28,10 @@ export default function Destination(props) {
                 <Card.Title>
                     {status === "200"
                     ? <p className="cardTitle"> {cityName}, {countryCode}</p>
-                    : <p className="cardTitle"> {cityName} (Failed to load)</p>
+                    : <p className="cardTitle"> {cityCode} (Failed to load)</p>
                     }
                 </Card.Title>  
-                {cityName
+                {cityCode 
                 ? <div className="cardBtn">
                     <Button variant="primary" size="sm" onClick={ event => getPointsOfInterest(event) }>
                         Attractions
@@ -42,8 +43,10 @@ export default function Destination(props) {
                     <FlightSearchModal
                         show={modalShow}
                         onHide={() => setModalShow(false)}
-                        cityName = {cityName}
-                        countryCode = {countryCode}
+                        destination = {props.destination}
+                        origin = {props.origin}
+                        originCode = {props.originCode}
+                        apiUrl = {props.apiUrl}
                     />
                 </div>
                 : <div>
