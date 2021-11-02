@@ -3,7 +3,6 @@ import { Container, CardGroup, Row, Col } from "react-bootstrap";
 import PointOfInterest from './PointOfInterest';
 import queryString from 'query-string';
 import axios from 'axios';
-
 import "../static/css/PointsOfInterestPage.css"
 
 export default function PointsOfInterestPage(props) {
@@ -53,10 +52,21 @@ export default function PointsOfInterestPage(props) {
     }
 
     return (
-        <Container className="pointsOfInterestContainer">
-            <h2>{destination} attractions</h2>
-            <CardGroup className="pointsOfInterest justify-content-center">{pointsOfInterestRows}</CardGroup>
-        </Container>
+        <div className="pointsOfInterestOuter">
+            <Container fluid className="pointsOfInterestContainer bg-dark">
+                <Row >
+                    <Col style={{marginTop: "20px"}}>
+                        <h2 className="headerMsg">{destination} attractions</h2>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col style={{marginTop: "20px"}}>
+                        <CardGroup className="pointsOfInterest justify-content-center">{pointsOfInterestRows}</CardGroup>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+        
     );
 
 }

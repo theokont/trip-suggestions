@@ -13,19 +13,13 @@ class App extends React.Component {
     this.state = {
       apiUrl: "http://localhost:8080/api",
       origin: null,
+      originCode: null,
       destinations: null,
-      destinationArr: [],
     }
   }
 
   setOrigin(event) {
     this.setState({origin: event.target.value});
-  }
-
-  handleState(data) {
-    let destArr = this.state.destinationArr;
-    destArr.push(data);
-    this.setState({destinationArr: destArr})
   }
 
   render() {
@@ -36,13 +30,9 @@ class App extends React.Component {
         <Route path="/destinations" render = {() => (
           <DestinationsPage
            origin={this.state.origin}
+           originCode = {this.state.originCode}
            destinations={this.state.destinations} 
            apiUrl={this.state.apiUrl} 
-           handleState={data => this.handleState(data)}
-           handlePoi={(data, name) => {
-            let index = this.state.destinationArr.findIndex(x => x.destinationName === name);
-            this.setState.destinationArr[index].poi = data;
-           }}
            />
            )} 
           />
@@ -53,6 +43,7 @@ class App extends React.Component {
             origin={this.state.origin}
             handleResponse={data => this.setState({destinations: data})}
             handleError={(response) => this.setState({destinations: response.status})}
+            handleOriginCode = {(data) => this.setState({originCode: data})}
           />
           )}
         />

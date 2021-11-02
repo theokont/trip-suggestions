@@ -28,15 +28,7 @@
   color: #61dafb;
 }
 
-.landingPageContainer {
-  width: 80%;
-  height: 95vh;
-  background-color: rgba(54, 105, 129, 0.63);
-  margin: 0 auto;
-  background-image: url("../images/landing_page.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+
 
 @keyframes App-logo-spin {
   from {

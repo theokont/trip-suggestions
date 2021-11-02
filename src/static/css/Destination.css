@@ -14,11 +14,17 @@
     text-align: center;
 }
 
-.btnAttractions {
+.cardBtn {
     /* text-align: center; */
-    display: flex;
+    /* display: flex; */
+    display: inline-block;
+    vertical-align: top;
     justify-content: center;  
-    align-items: center;  
+    align-items: center;
+}
+
+.searchButton {
+    margin-top: 4px;
 }
 
 .destinationsCard {

@@ -21,8 +21,10 @@ export default class DestinationsPage extends React.Component {
                     return (
                     <Col md={4}>
                         <Destination 
-                            key={destination.destination} 
+                            key={destination.cityCode} 
                             apiUrl={this.props.apiUrl} 
+                            origin = {this.props.origin}
+                            originCode = {this.props.originCode}
                             destination={destination} 
                         />
                     </Col>);
@@ -39,10 +41,21 @@ export default class DestinationsPage extends React.Component {
             }
             
             return (
-                <Container className="destinationsContainer">
-                    <h2>Popular destinations from {this.props.origin}</h2>
-                    <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
-                </Container>
+                <div className="destinationsOuter">
+                    <Container className="bg-dark">
+                        <Row>
+                            <Col  style={{marginTop: "20px"}}>
+                                <h2 className="headerMsg">Popular destinations from {this.props.origin}</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col  style={{marginTop: "20px"}}>
+                                <CardGroup className="destinations justify-content-center">{destinationRows}</CardGroup>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+                
             )
         }
         else {
